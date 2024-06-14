@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>CareCompanion | HealthCare App</title>
+    <link rel="icon" href="/static/img/logo1.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type=text/css href="{{url_for('static',filename='css/bootstrap.min.css')}}" >
+    
+    <!-- animate CSS -->
+    <link rel="stylesheet" type=text/css href="{{url_for('static',filename='css/animate.css')}}">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" type=text/css href="{{url_for('static',filename='css/owl.carousel.min.css')}}">
+    <!-- themify CSS -->
+    <link rel="stylesheet" type=text/css href="{{url_for('static',filename='css/themify-icons.css')}}">
+    <!-- flaticon CSS -->
+    <link rel="stylesheet" type=text/css href="{{url_for('static',filename='css/flaticon.css')}}">
+    <!-- magnific popup CSS -->
+    <link rel="stylesheet" type=text/css href="{{url_for('static',filename='css/magnific-popup.css')}}">
+    <!-- nice select CSS -->
+    <link rel="stylesheet" type=text/css href="{{url_for('static',filename='css/nice-select.css')}}">
+    <!-- swiper CSS -->
+    <link rel="stylesheet" type=text/css href="{{url_for('static',filename='css/slick.css.css')}}">
+    <!-- style CSS -->
+    <link rel="stylesheet" type=text/css href="{{url_for('static', filename='css/style.css')}}">
+    <!-- Background Image CSS -->
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='img/bag.png') }}");
+            background-repeat: no-repeat; /* Do not repeat the image */
+            background-size: cover; /* Resize the background image to cover the entire */
+        }
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #343a40; /* Change sidebar background color as needed */
+            padding-top: 70px; /* Adjust top padding to account for navbar height */
+            transition: width 0.3s ease; /* Add transition for smooth animation */
+        }
+
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #ffffff; /* Change link color as needed */
+            display: block;
+        }
+
+        .sidebar a:hover {
+            background-color: #495057; /* Change hover background color as needed */
+        }
+
+
+        /* Style for the hamburger icon */
+        .additionaldata{
+            position: fixed;
+            bottom: 0;
+            width:auto;
+            margin-right: 83%;
+            margin-left: 0%;
+            padding: 20px;
+            color: white; /* Text color */
+        }
+        .hamburger {
+            cursor: pointer;
+            padding: 10px;
+            position: fixed;
+            top: 20px;
+            left: 10px;
+            z-index: 9999;
+            color: #ffffff; /* Hamburger icon color */
+        }
+    </style>
+</head>
+<body>
+    <div class="hamburger" onclick="toggleSidebar()">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+    </div>
+    <div class="sidebar">
+        <a href="{{ url_for('index') }}">Home</a>
+        <a href="{{ url_for('chat') }}">Find Me Doctor</a>
+        <a href="{{ url_for('bmi')}}">BMI Check</a>
+        <a href="#">My Records</a>
+        <!-- Add more sidebar links as needed -->
+        <div class="additionaldata">
+            This Project is made by group of Students of VIT Bhopal
+        </div>
+    </div>
+    
+<!--::header part start::-->
+<header class="main_menu home_menu">
+    <div class="container">
+        <a class="navbar-brand" href="{{ url_for('index') }}"> <img src="static/img/logo1.png" style="height:78px; width:78px;"> </a><div class="mb-10 mr-10 badge " style="font-size: 30px; color: #007bff;;">CareCompanion</div>
+    </div>
+</header>
+<!-- Header part end-->
+
+{% block content %}
+
+{% endblock %}
+
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery-1.12.1.min.js')}}" ></script>
+<!-- popper js -->
+<script type="text/javascript"
+    src="{{url_for('static', filename='js/popper.min.js')}}"></script>
+<!-- bootstrap js -->
+<script type="text/javascript"
+    src="{{url_for('static', filename='js/bootstrap.min.js')}}"></script>
+<!-- owl carousel js -->
+<script type="text/javascript"
+    src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+<script type="text/javascript"
+    src="{{ url_for('static', filename='js/jquery.nice-select.min.js') }}"></script>
+<!-- contact js -->
+<script type="text/javascript"
+    src="{{ url_for('static', filename='js/jquery.ajaxchimp.min.js') }}"></script>
+<script type="text/javascript"
+    src="{{ url_for('static', filename='js/jquery.form.js') }}"></script>
+<script type="text/javascript"
+    src="{{ url_for('static', filename='js/jquery.validate.min.js') }}"></script>
+<script type="text/javascript"
+    src="{{ url_for('static', filename='js/mail-script.js') }}"></script>
+<script type="text/javascript"
+    src="{{ url_for('static', filename='js/contact.js') }}"></script>
+<!-- custom js -->
+<script type="text/javascript"
+    src="{{ url_for('static', filename='js/custom.js') }}"></script>
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            var content = document.querySelector(".content");
+            if (sidebar.style.width === '250px') {
+                sidebar.style.width = '0';
+                content.style.marginLeft = '0';
+            } else {
+                sidebar.style.width = '250px';
+                content.style.marginLeft = '250px';
+            }
+        }
+    </script>
+</body>
+</html>
