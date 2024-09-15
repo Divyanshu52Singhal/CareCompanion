@@ -1,14 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for,flash
 from time import sleep
-#import google.generativeai as genai
+import google.generativeai as genai
 import urllib
 
 app = Flask(__name__)
 app.secret_key = "password"
 # Set your OpenAI API key
 #openai.api_key = ''
-api = ''
-#genai.configure(api_key=api)
+genai.configure(api_key=API)
 
 
 def doctor_find(query):
