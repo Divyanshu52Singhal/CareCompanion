@@ -2,11 +2,13 @@ from flask import Flask, render_template, request, redirect, url_for,flash
 from time import sleep
 import google.generativeai as genai
 import urllib
+from dotenv import load_dotenv
 
 app = Flask(__name__)
 app.secret_key = "password"
 # Set your OpenAI API key
 #openai.api_key = ''
+load_dotenv()
 genai.configure(api_key=API)
 
 
