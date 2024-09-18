@@ -2,25 +2,58 @@
 {% block content %}
 
 <style>
-    .Content{
-    margin-left: 250px; /* Adjust content margin to match sidebar width */
-    margin-top: 50px;
-    padding: 20px;
+    .Content {
+        width: 650px;
+        margin: 50px auto;
+        margin-top: 130px;
+        padding: 20px;
+        border-radius: 20px;
+        background-color: rgba(255, 255, 255, 0.45);
+        box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(15px);
     }
 
-    .form-control{
-        width: 30%;
-        }
+    body {
+        background: url(https://source.unsplash.com/E8Ufcyxz514/2400x1823) center / cover no-repeat fixed;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+
+    .form {
+        padding: 60px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .btn-primary:focus {
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+    }
+
+    .response {
+        margin-top: 20px;
+    }
 </style>
+
+
 <div class="Content">
     <div class="card-body">
         <!-- Form for submitting symptoms -->
         <form class="form" method="POST" action="{{ url_for('bmi') }}">
             <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
-                <label for="Weight" class="mr-sm-2">Weight</label>
-                <input name="Weight" id="Weight" placeholder="Enter Weight in Kgs" type="number" class="form-control" ><br>
-                <label for="Height" class="mr-sm-2">Height</label>
-                <input name="Height" id="Height" placeholder="Enter Height in cms" type="number" class="form-control" >
+                <label for="Weight" class="mr-sm-2"><h1>Enter your Weight:</h1></label>
+                <input name="Weight" id="Weight" placeholder="Enter Weight in Kgs" type="number" class="form-control"><br>
+                <label for="Height" class="mr-sm-2"><h1>Enter your Height:</h1></label>
+                <input name="Height" id="Height" placeholder="Enter Height in cms" type="number" class="form-control">
             </div><br>
             <button class="btn btn-primary">Submit</button>
         </form>
