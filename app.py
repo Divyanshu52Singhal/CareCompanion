@@ -41,7 +41,7 @@ def doctor_find(query):
     },
   ]
 
-  model = genai.GenerativeModel(model_name="gemini-1.0-pro",generation_config=generation_config,safety_settings=safety_settings)
+  model = genai.GenerativeModel(model_name="gemini-1.5-flash-8b",generation_config=generation_config,safety_settings=safety_settings)
   prompt_parts = [
   "the user input will tell the symptoms he is facing according to that you have to tell the department of doctor he should visit give only one or two word answer",
   "input: pimple and acne",
@@ -49,7 +49,7 @@ def doctor_find(query):
   ]
   prompt_parts.append(f"input: {query}")
   response = model.generate_content(prompt_parts)
-  print(response)
+  # print(response)
   response_text = response.text
   encoded_response = urllib.parse.quote_plus(response_text)
   google_maps_url = f'https://www.google.com/maps/search/{encoded_response}+doctor+near+me/'

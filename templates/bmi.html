@@ -48,13 +48,20 @@
 <div class="Content">
     <div class="card-body">
         <!-- Form for submitting symptoms -->
-        <form class="form" method="POST" action="{{ url_for('bmi') }}">
+        <form class="form" method="POST" action="{{ url_for('bmi') }}" onsubmit="return validateForm()">
             <div class="mb-2 mr-sm-2 mb-sm-0 position-relative form-group">
                 <label for="Weight" class="mr-sm-2"><h1>Enter your Weight:</h1></label>
-                <input name="Weight" id="Weight" placeholder="Enter Weight in Kgs" type="number" class="form-control"><br>
+                <input name="Weight" id="Weight" placeholder="Enter Weight in Kgs" type="number" 
+                    class="form-control" 
+                    min="20" max="500" 
+                    required><br>
                 <label for="Height" class="mr-sm-2"><h1>Enter your Height:</h1></label>
-                <input name="Height" id="Height" placeholder="Enter Height in cms" type="number" class="form-control">
+                <input name="Height" id="Height" placeholder="Enter Height in cms" type="number" 
+                    class="form-control"
+                    min="50" max="300" 
+                    required>
             </div><br>
+            <div id="error-message" class="text-danger"></div>
             <button class="btn btn-primary">Submit</button>
         </form>
 
@@ -69,4 +76,28 @@
     </div>
 </div>
 
+<script>
+    function validateForm() {
+        const weight = document.getElementById('Weight').value;
+        const height = document.getElementById('Height').value;
+        const errorDiv = document.getElementById('error-message');
+        
+        // Clear previous error messages
+        errorDiv.innerHTML = '';
+        
+        // Validate weight
+        if (weight < 20 || weight > 500) {
+            errorDiv.innerHTML = 'Please enter a valid weight between 20 and 500 kg';
+            return false;
+        }
+        
+        // Validate height
+        if (height < 50 || height > 300) {
+            errorDiv.innerHTML = 'Please enter a valid height between 50 and 300 cm';
+            return false;
+        }
+        
+        return true;
+    }
+    </script>
 {% endblock content %}

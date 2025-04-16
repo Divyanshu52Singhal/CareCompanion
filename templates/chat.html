@@ -89,7 +89,8 @@
             <div class="form-group">
                 
                 <label for="symptoms"><h1>Symptoms Facing</h1></label>
-                <input name="symptoms" id="symptoms" placeholder="Enter Symptoms" type="text" class="form-control">
+                <input name="symptoms" id="symptoms" placeholder="Enter Symptoms" type="text" 
+                       class="form-control" value="{{ request.form.get('symptoms', '') }}">
             </div>
             <button class="btn btn-primary ml-2">Submit</button>
         </form>
